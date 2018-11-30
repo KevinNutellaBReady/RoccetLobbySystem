@@ -5,6 +5,7 @@
  */
 package me.kevin.listener;
 
+import me.kevin.hotbar.Items;
 import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -31,7 +32,13 @@ public class Joinlistener implements Listener {
         Player p = e.getPlayer();
         
         if(!p.hasPlayedBefore()) {
-            
+            Items.setItems(p);
+            p.sendTitle("§7Willkomen", "§b" + p.getName());
+            p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Hallo, es sind gerade §b" + RoccetLobbySystem.getCloud().getOnlineCount() + " §b§lvon §b100");
+        } else if(p.hasPlayedBefore()) {
+            Items.setItems(p);
+            p.sendTitle("§7Willkomen", "§b" + p.getName());
+            p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Hallo, es sind gerade §b" + RoccetLobbySystem.getCloud().getOnlineCount() + " §b§lvon §b100");
         }
         
         
