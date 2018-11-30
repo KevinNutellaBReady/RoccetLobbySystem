@@ -20,7 +20,6 @@ public class RoccetLobbySystem {
 
    public void onEnable() {
        Bukkit.getConsoleSender().sendMessage("RoccetLobby aktiviert");
-       
    }
    public void onDisable() {
        
