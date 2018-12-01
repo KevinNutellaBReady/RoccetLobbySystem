@@ -24,6 +24,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class RoccetLobbySystem extends JavaPlugin implements Listener {
     
     public static Inventory nav = null;
+    public static Inventory switcher = null;
     
     public static String prefix = "§6§lLobby §7: ";
     public static String noperms = getPrefix() + "§c§lDazu hast du keine Rechte";
@@ -66,7 +67,6 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
      getConfig().options().header("Das ist die Config vom RoccetLobbySystem");
       getConfig().options().copyDefaults(true);
        saveConfig();
-         getCloud().
    
      }
     public static String getPrefix() {
