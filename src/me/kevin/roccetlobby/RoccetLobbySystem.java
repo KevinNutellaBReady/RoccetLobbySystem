@@ -11,6 +11,7 @@ import me.kevin.hotbar.LobbySwitcherInteract;
 import me.kevin.hotbar.Playerhider;
 import me.kevin.listener.Joinlistener;
 import me.kevin.listener.Jumppads;
+import me.kevin.listener.LobbySwitcherClicklistener;
 import me.kevin.listener.Protection;
 import me.kevin.listener.Quitlistener;
 import org.bukkit.Bukkit;
@@ -63,6 +64,8 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(new Quitlistener(), this);
     Bukkit.getPluginManager().registerEvents(new Protection(), this);
     Bukkit.getPluginManager().registerEvents(new LobbySwitcherInteract(), this);
+    Bukkit.getPluginManager().registerEvents(new Protection(), this);
+    Bukkit.getPluginManager().registerEvents(new LobbySwitcherClicklistener(), this);
     
     }
      public void loadConfig() {
