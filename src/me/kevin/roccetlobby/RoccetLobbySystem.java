@@ -7,6 +7,7 @@ package me.kevin.roccetlobby;
 
 import me.kevin.hotbar.Playerhider;
 import me.kevin.listener.Joinlistener;
+import me.kevin.listener.Jumppads;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
@@ -50,6 +51,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     
     Bukkit.getPluginManager().registerEvents(new Joinlistener(), this);
     Bukkit.getPluginManager().registerEvents(new Playerhider(), this);
+    Bukkit.getPluginManager().registerEvents(new Jumppads(), this);
     
     }
      public void loadConfig() {
