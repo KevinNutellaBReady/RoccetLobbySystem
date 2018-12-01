@@ -7,6 +7,7 @@ package me.kevin.listener;
 
 import me.BukkitPVP.PointsAPI.PointsAPI;
 import me.kevin.hotbar.Items;
+import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,6 +27,7 @@ public class Joinlistener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         e.setJoinMessage(null);
         Player p = e.getPlayer();
+        p.setGameMode(GameMode.ADVENTURE);
         
         if(!p.hasPlayedBefore()) {
             Items.setItems(p);

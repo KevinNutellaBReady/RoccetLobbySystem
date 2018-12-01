@@ -5,9 +5,13 @@
  */
 package me.kevin.roccetlobby;
 
+import de.dytanic.cloudnet.api.CloudAPI;
+import me.kevin.commands.Build;
 import me.kevin.hotbar.Playerhider;
 import me.kevin.listener.Joinlistener;
 import me.kevin.listener.Jumppads;
+import me.kevin.listener.Protection;
+import me.kevin.listener.Quitlistener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
@@ -22,8 +26,9 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     public static Inventory nav = null;
     
     public static String prefix = "§6§lLobby §7: ";
-    public static String noperms = getPrefix() + "§cDazu hast du keine Rechte";
+    public static String noperms = getPrefix() + "§c§lDazu hast du keine Rechte";
     private static RoccetLobbySystem instance;
+    private CloudAPI cloud;
     
     @Override
    public void onEnable() {
@@ -33,17 +38,18 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
        registerEvents();
        
        instance = this;
+       cloud = CloudAPI.getInstance();
   
     
        
    }
     @Override
    public void onDisable() {
-       
+       Bukkit.getConsoleSender().sendMessage("§4RoccetLobby deaktiviert");
    }
    
     public void registerCommands() {
-        
+        getCommand("build").setExecutor(new Build());
     }
     public void registerEvents() {
     this.getServer().getPluginManager().registerEvents( this, this);
@@ -52,6 +58,8 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(new Joinlistener(), this);
     Bukkit.getPluginManager().registerEvents(new Playerhider(), this);
     Bukkit.getPluginManager().registerEvents(new Jumppads(), this);
+    Bukkit.getPluginManager().registerEvents(new Quitlistener(), this);
+    Bukkit.getPluginManager().registerEvents(new Protection(), this);
     
     }
      public void loadConfig() {
@@ -73,6 +81,11 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     public static RoccetLobbySystem getInstance() {
         return instance;
     }
+
+    public CloudAPI getCloud() {
+        return cloud;
+    }
+    
    
     
 }

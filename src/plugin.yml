@@ -2,3 +2,5 @@ name: RoccetLobby
 version: 1.0
 author: Kevin
 main: me.kevin.roccetlobby.RoccetLobbySystem
+commands:
+    build:
