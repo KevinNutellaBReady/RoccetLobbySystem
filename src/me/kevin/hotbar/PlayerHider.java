@@ -28,8 +28,8 @@ public class PlayerHider implements Listener {
     
     
    //<editor-fold defaultstate="collapsed" desc="Arraylisten">
-            private static CopyOnWriteArrayList<Player> hidden = new CopyOnWriteArrayList<>();
-	    private static CopyOnWriteArrayList<Player> cooldown = new CopyOnWriteArrayList<>();
+            private static final CopyOnWriteArrayList<Player> hidden = new CopyOnWriteArrayList<>();
+	    private static final CopyOnWriteArrayList<Player> cooldown = new CopyOnWriteArrayList<>();
 //</editor-fold>
 	
 	@EventHandler
@@ -39,18 +39,14 @@ public class PlayerHider implements Listener {
 		 
 		 if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
 	            if(e.getItem() != null){
-	                if(e.getItem().getType() == Material.BONE){
-	                    
-
-	                        
-
+	                if(e.getItem().getType() == Material.BONE) {
 	                        if(hidden.contains(p)){
 	                            hidden.remove(p);
 	                            for(Player all : Bukkit.getOnlinePlayers()){
 	                                p.showPlayer(all);
 	                            }
 
-	                            p.sendMessage(plugin.getPrefix() + "§e§§lDu siehst nun wieder alle Spieler!");
+	                            p.sendMessage(plugin.getPrefix() + "§e§lDu siehst nun wieder alle Spieler!");
 
 	                        } else {
 
@@ -60,12 +56,11 @@ public class PlayerHider implements Listener {
 	                                p.hidePlayer(all);
 	                            }
 
-	                            p.sendMessage(plugin.getPrefix() + "§e§§lDu hast nun alle Spieler versteckt!");
+	                            p.sendMessage(plugin.getPrefix() + "§e§lDu hast nun alle Spieler versteckt!");
 
 	                        
 
 	                    }
-
 	                }
 
 	            }
