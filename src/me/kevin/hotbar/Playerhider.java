@@ -29,8 +29,6 @@ public class Playerhider implements Listener {
 	@EventHandler
 	public void onInteract(PlayerInteractEvent e) {
 		Player p = e.getPlayer();
-		 if(e.getPlayer() == null)return;
-		 
 		 if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
 	            if(e.getMaterial().equals(Material.BLAZE_ROD)) {
                         if(hidden.contains(p)) {
