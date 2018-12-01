@@ -28,33 +28,72 @@ public class PlayerHider implements Listener {
     }
     
     
-    
-    private static CopyOnWriteArrayList<Player> hidden = new CopyOnWriteArrayList<>();
-    
-    @EventHandler
-    public void onInteract(PlayerInteractEvent e) {
-        if(e.getAction() == Action.RIGHT_CLICK_AIR | e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            if(e.getMaterial().equals(Material.GOLDEN_APPLE)) {
-                Player p = e.getPlayer();
-                hidden.add(p);
-                p.sendMessage(plugin.getPrefix() + "§7Alle Spieler wurden §4§lversteckt");
-                 p.getInventory().setItem(1, new ItemManager("§e§lSpieler-Verstecken §7x §4Aus", Material.APPLE, (byte)0, 1, "").build());
-                 for(Player all : Bukkit.getOnlinePlayers()) {
-                     all.hidePlayer(p);
-                     p.hidePlayer(all);
-                 }
-                
-            } else if(e.getMaterial().equals(Material.APPLE)) {
-                Player p = e.getPlayer();
-                hidden.remove(p);
-                p.sendMessage(plugin.getPrefix() + "§7Alle Spieler wurden §a§lAngezeigt");
-                 p.getInventory().setItem(1, new ItemManager("§e§lSpieler-Verstecken §7x §4Aus", Material.APPLE, (byte)0, 1, "").build());
-                 for(Player all : Bukkit.getOnlinePlayers()) {
-                     all.showPlayer(p);
-                     p.showPlayer(all);
-                 }
-            }
-        }
-    }
+   //<editor-fold defaultstate="collapsed" desc="Arraylisten">
+            private static CopyOnWriteArrayList<Player> hidden = new CopyOnWriteArrayList<>();
+	    private static CopyOnWriteArrayList<Player> cooldown = new CopyOnWriteArrayList<>();
+//</editor-fold>
+	
+	@EventHandler
+	public void onInteract(PlayerInteractEvent e) {
+		Player p = e.getPlayer();
+		 if(e.getPlayer() == null)return;
+		 
+		 if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
+	            if(e.getItem() != null){
+	                if(e.getItem().getType() == Material.GOLDEN_APPLE){
+	                    
+
+	                        if(hasCooldown(p)){
+	                            p.sendMessage(plugin.getPrefix() + "§cBitte warte noch einen Moment...");
+	                            return;
+	                        }
+
+	                        if(hidden.contains(p)){
+	                            startCooldown(p);
+	                            hidden.remove(p);
+	                            for(Player all : Bukkit.getOnlinePlayers()){
+	                                p.showPlayer(all);
+	                            }
+
+	                            p.sendMessage(plugin.getPrefix() + "§e§§lDu siehst nun wieder alle Spieler!");
+
+	                        } else {
+
+	                            startCooldown(p);
+	                            hidden.add(p);
+	                            for(Player all : Bukkit.getOnlinePlayers()){
+	                                p.hidePlayer(all);
+	                            }
+
+	                            p.sendMessage(plugin.getPrefix() + "§e§§lDu hast nun alle Spieler versteckt!");
+
+	                        
+
+	                    }
+
+	                }
+
+	            }
+
+	        }
+		
+	
+		
+	}
+	@SuppressWarnings("deprecation")
+	private void startCooldown(final Player p){
+
+      cooldown.add(p);
+
+      Bukkit.getScheduler().scheduleAsyncDelayedTask(plugin.getInstance(), new Runnable() {
+                  @Override
+                  public void run() {
+                      cooldown.remove(p);
+                  }
+              }, 100);
+  }
+	private boolean hasCooldown(Player p){
+      return cooldown.contains(p);
+  }
     
 }
