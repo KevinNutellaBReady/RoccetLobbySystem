@@ -36,11 +36,11 @@ public class Joinlistener implements Listener {
         if(!p.hasPlayedBefore()) {
             Items.setItems(p);
             PointsAPI.addPoints(p, 10);
-            p.sendTitle("§7Willkomen", "§b" + p.getName());
+            p.sendTitle("§7Willkommen", "§b" + p.getName());
             
         } else if(p.hasPlayedBefore()) {
             Items.setItems(p);
-            p.sendTitle("§7Willkomen", "§b" + p.getName());
+            p.sendTitle("§7Willkommen", "§b" + p.getName());
             
         }
         
