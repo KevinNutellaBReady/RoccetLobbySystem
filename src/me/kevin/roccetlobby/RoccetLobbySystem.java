@@ -5,7 +5,7 @@
  */
 package me.kevin.roccetlobby;
 
-import me.kevin.hotbar.PlayerHider;
+import me.kevin.hotbar.Playerhider;
 import me.kevin.listener.Joinlistener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -49,7 +49,8 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(this, this);
     
     Bukkit.getPluginManager().registerEvents(new Joinlistener(this), this);
-    Bukkit.getPluginManager().registerEvents(new PlayerHider(), this);
+    Bukkit.getPluginManager().registerEvents(new Playerhider(this), this);
+    
     }
      public void loadConfig() {
      getConfig().options().header("Das ist die Config vom RoccetLobbySystem");
