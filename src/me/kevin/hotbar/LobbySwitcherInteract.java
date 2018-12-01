@@ -75,9 +75,9 @@ public class LobbySwitcherInteract implements Listener {
                              @Override
                              public void run() {
                                  if(RoccetLobbySystem.getCloud().getServerInfo("Lobby-4") != null) {
-                                     RoccetLobbySystem.switcher.setItem(1, new ItemManager("§7Lobby-4 §8x §aAn", Material.STORAGE_MINECART, (byte) 0, 1, "").build());
+                                     RoccetLobbySystem.switcher.setItem(2, new ItemManager("§7Lobby-4 §8x §aAn", Material.STORAGE_MINECART, (byte) 0, 1, "").build());
                                  } else if(RoccetLobbySystem.getCloud().getServerInfo("Lobby-4") == null) {
-                                     RoccetLobbySystem.switcher.setItem(1, new ItemManager("§7Lobby-4 §8x §4Aus", Material.MINECART, (byte) 0, 1, "").build());
+                                     RoccetLobbySystem.switcher.setItem(2, new ItemManager("§7Lobby-4 §8x §4Aus", Material.MINECART, (byte) 0, 1, "").build());
                                  }
                                  
                                  p.playSound(p.getLocation(), Sound.CLICK, 1, 1);

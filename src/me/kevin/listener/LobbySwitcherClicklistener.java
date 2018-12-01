@@ -28,19 +28,7 @@ public class LobbySwitcherClicklistener implements Listener {
                     new SendManager().send(p, "Lobby-1");
                     p.closeInventory();
                     p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zur §aLobby-1 gesendet");
-                } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-2 §8x §aAn")) {
-                    new SendManager().send(p, "Lobby-2");
-                    p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zur §aLobby-2 gesendet");
-                    p.closeInventory();
-                } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-3 §8x §aAn")) {
-                    new SendManager().send(p, "Lobby-3");
-                    p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zur §aLobby-3 gesendet");
-                    p.closeInventory();
-                } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-4 §8x §aAn")) {
-                    new SendManager().send(p, "Lobby-4");
-                    p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zur §aLobby-4 gesendet");
-                    p.closeInventory();
-                }
+                } 
             }
         }
         
