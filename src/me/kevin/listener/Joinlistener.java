@@ -7,7 +7,6 @@ package me.kevin.listener;
 
 import me.BukkitPVP.PointsAPI.PointsAPI;
 import me.kevin.hotbar.Items;
-import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,12 +18,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
  */
 public class Joinlistener implements Listener {
     
-    @SuppressWarnings("FieldMayBeFinal")
-    private RoccetLobbySystem plugin;
-
-    public Joinlistener(RoccetLobbySystem plugin) {
-        this.plugin = plugin;
-    }
+    
     
     
     

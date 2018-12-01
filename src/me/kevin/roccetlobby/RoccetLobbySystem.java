@@ -20,8 +20,8 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     
     public static Inventory nav = null;
     
-    public String prefix = "§6§lLobby §7: ";
-    public String noperms = getPrefix() + "§cDazu hast du keine Rechte";
+    public static String prefix = "§6§lLobby §7: ";
+    public static String noperms = getPrefix() + "§cDazu hast du keine Rechte";
     private static RoccetLobbySystem instance;
     
     @Override
@@ -48,8 +48,8 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     this.getServer().getPluginManager().registerEvents( this, this);
     Bukkit.getPluginManager().registerEvents(this, this);
     
-    Bukkit.getPluginManager().registerEvents(new Joinlistener(this), this);
-    Bukkit.getPluginManager().registerEvents(new Playerhider(this), this);
+    Bukkit.getPluginManager().registerEvents(new Joinlistener(), this);
+    Bukkit.getPluginManager().registerEvents(new Playerhider(), this);
     
     }
      public void loadConfig() {
@@ -58,11 +58,11 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
        saveConfig();
    
      }
-    public  String getPrefix() {
+    public static String getPrefix() {
         return prefix;
     }
 
-    public String getNoperms() {
+    public static String getNoperms() {
         return noperms;
     }
 

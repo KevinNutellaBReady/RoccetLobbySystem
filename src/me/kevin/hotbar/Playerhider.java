@@ -14,11 +14,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 
 public class Playerhider implements Listener {
-    private RoccetLobbySystem plugin;
-
-    public Playerhider(RoccetLobbySystem plugin) {
-        this.plugin = plugin;
-    }
+    
     
     
 
@@ -33,14 +29,14 @@ public class Playerhider implements Listener {
 	            if(e.getMaterial().equals(Material.BLAZE_ROD)) {
                         if(hidden.contains(p)) {
                             hidden.remove(p);
-                            p.sendMessage(plugin.getPrefix() + "§7Du hast nun alle Spieler wieder §aangezeigt");
+                            p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du hast nun alle Spieler wieder §aangezeigt");
                             for(Player all : Bukkit.getOnlinePlayers()) {
                                 all.hidePlayer(p);
                                 p.hidePlayer(all);
                             }
                         } else if(!hidden.contains(p)) {
                             hidden.add(p);
-                             p.sendMessage(plugin.getPrefix() + "§7Du hast nun alle Spieler wieder §4versteckt");
+                             p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du hast nun alle Spieler wieder §4versteckt");
                             for(Player all : Bukkit.getOnlinePlayers()) {
                                 all.showPlayer(p);
                                 p.showPlayer(all);
