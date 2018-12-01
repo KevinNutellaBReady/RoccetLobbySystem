@@ -27,14 +27,6 @@ public class SendManager {
     }
     
     public void send(Player p, String server){
-		ByteArrayOutputStream b = new ByteArrayOutputStream();
-		DataOutputStream out = new DataOutputStream(b);
-		try{
-			out.writeUTF("Connect");
-			out.writeUTF(server);
-		}catch(IOException e){
-			
-		}
-		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+		
 	}
 }

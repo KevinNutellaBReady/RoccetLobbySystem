@@ -5,6 +5,9 @@
  */
 package me.kevin.listener;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 import me.kevin.managers.SendManager;
 import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.Material;
@@ -32,16 +35,49 @@ public class LobbySwitcherClicklistener implements Listener {
            e.setCancelled(true);
                if(e.getCurrentItem().getType() == Material.STORAGE_MINECART) {
                   if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-1 §8x §aAn")) {
-                      new SendManager().send(p, "Lobby-1");
+                      ByteArrayOutputStream b = new ByteArrayOutputStream();
+		DataOutputStream out = new DataOutputStream(b);
+		try{
+			out.writeUTF("Connect");
+			out.writeUTF("Lobby-1");
+		}catch(IOException a){
+			
+		}
+		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+                
                       p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zu Lobby-1 gesendet");
                   } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-2 §8x §aAn")) {
-                      new SendManager().send(p, "Lobby-2");
+                       ByteArrayOutputStream b = new ByteArrayOutputStream();
+		DataOutputStream out = new DataOutputStream(b);
+		try{
+			out.writeUTF("Connect");
+			out.writeUTF("Lobby-2");
+		}catch(IOException a){
+			
+		}
+		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
                       p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zu Lobby-2 gesendet");
                   } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-3 §8x §aAn")) {
-                      new SendManager().send(p, "Lobby-3");
+                      ByteArrayOutputStream b = new ByteArrayOutputStream();
+		DataOutputStream out = new DataOutputStream(b);
+		try{
+			out.writeUTF("Connect");
+			out.writeUTF("Lobby-3");
+		}catch(IOException a){
+			
+		}
+		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
                       p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zu Lobby-3 gesendet");
                   } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-4 §8x §aAn")) {
-                      new SendManager().send(p, "Lobby-4");
+                       ByteArrayOutputStream b = new ByteArrayOutputStream();
+		DataOutputStream out = new DataOutputStream(b);
+		try{
+			out.writeUTF("Connect");
+			out.writeUTF("Lobby-4");
+		}catch(IOException a){
+			
+		}
+		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
                       p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zu Lobby-4 gesendet");
                   }
            }
