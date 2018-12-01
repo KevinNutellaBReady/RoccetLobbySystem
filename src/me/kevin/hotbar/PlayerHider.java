@@ -6,7 +6,6 @@
 package me.kevin.hotbar;
 
 import java.util.concurrent.CopyOnWriteArrayList;
-import me.kevin.managers.ItemManager;
 import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -43,13 +42,9 @@ public class PlayerHider implements Listener {
 	                if(e.getItem().getType() == Material.BONE){
 	                    
 
-	                        if(hasCooldown(p)){
-	                            p.sendMessage(plugin.getPrefix() + "§cBitte warte noch einen Moment...");
-	                            return;
-	                        }
+	                        
 
 	                        if(hidden.contains(p)){
-	                            startCooldown(p);
 	                            hidden.remove(p);
 	                            for(Player all : Bukkit.getOnlinePlayers()){
 	                                p.showPlayer(all);
@@ -59,7 +54,7 @@ public class PlayerHider implements Listener {
 
 	                        } else {
 
-	                            startCooldown(p);
+	                            
 	                            hidden.add(p);
 	                            for(Player all : Bukkit.getOnlinePlayers()){
 	                                p.hidePlayer(all);
@@ -80,20 +75,6 @@ public class PlayerHider implements Listener {
 	
 		
 	}
-	@SuppressWarnings("deprecation")
-	private void startCooldown(final Player p){
-
-      cooldown.add(p);
-
-      Bukkit.getScheduler().scheduleAsyncDelayedTask(plugin.getInstance(), new Runnable() {
-                  @Override
-                  public void run() {
-                      cooldown.remove(p);
-                  }
-              }, 100);
-  }
-	private boolean hasCooldown(Player p){
-      return cooldown.contains(p);
-  }
+	
     
 }
