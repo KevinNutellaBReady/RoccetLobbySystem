@@ -24,7 +24,6 @@ public class Playerhider implements Listener {
 
     //<editor-fold defaultstate="collapsed" desc="Arraylisten">
             private static CopyOnWriteArrayList<Player> hidden = new CopyOnWriteArrayList<>();
-	    private static CopyOnWriteArrayList<Player> cooldown = new CopyOnWriteArrayList<>();
 //</editor-fold>
 	
 	@EventHandler
@@ -33,62 +32,28 @@ public class Playerhider implements Listener {
 		 if(e.getPlayer() == null)return;
 		 
 		 if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
-	            if(e.getItem() != null){
-	                if(e.getItem().getType() == Material.BLAZE_ROD){
-	                    
-
-	                        if(hasCooldown(p)){
-	                            p.sendMessage(plugin.getPrefix() + "§cBitte warte noch einen Moment...");
-	                            return;
-	                        }
-
-	                        if(hidden.contains(p)){
-	                            startCooldown(p);
-	                            hidden.remove(p);
-	                            for(Player all : Bukkit.getOnlinePlayers()){
-	                                p.showPlayer(all);
-	                            }
-
-	                            p.sendMessage(plugin.getPrefix() + "§e§§lDu siehst nun wieder alle Spieler!");
-
-	                        } else {
-
-	                            startCooldown(p);
-	                            hidden.add(p);
-	                            for(Player all : Bukkit.getOnlinePlayers()){
-	                                p.hidePlayer(all);
-	                            }
-
-	                            p.sendMessage(plugin.getPrefix() + "§e§§lDu hast nun alle Spieler versteckt!");
-
-	                        
-
-	                    }
-
-	                }
-
-	            }
-
-	        }
-		
+	            if(e.getMaterial().equals(Material.BLAZE_ROD)) {
+                        if(hidden.contains(p)) {
+                            hidden.remove(p);
+                            p.sendMessage(plugin.getPrefix() + "§7Du hast nun alle Spieler wieder §aangezeigt");
+                            for(Player all : Bukkit.getOnlinePlayers()) {
+                                all.hidePlayer(p);
+                                p.hidePlayer(all);
+                            }
+                        } else if(!hidden.contains(p)) {
+                            hidden.add(p);
+                             p.sendMessage(plugin.getPrefix() + "§7Du hast nun alle Spieler wieder §4versteckt");
+                            for(Player all : Bukkit.getOnlinePlayers()) {
+                                all.showPlayer(p);
+                                p.showPlayer(all);
+                            }
+                        }
+                    }
 	
 		
 	}
-	@SuppressWarnings("deprecation")
-	private void startCooldown(final Player p){
-
-      cooldown.add(p);
-
-      Bukkit.getScheduler().scheduleAsyncDelayedTask(RoccetLobbySystem.getInstance(), new Runnable() {
-                  @Override
-                  public void run() {
-                      cooldown.remove(p);
-                  }
-              }, 100);
-  }
-	private boolean hasCooldown(Player p){
-      return cooldown.contains(p);
-  }
+       }
+        
 	}
 	
 
