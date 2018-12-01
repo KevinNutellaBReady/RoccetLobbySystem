@@ -42,7 +42,7 @@ public class LobbySwitcherInteract implements Listener {
                                  
                                  p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                              }
-                         }, 15);
+                         }, 10);
                            
                            Bukkit.getScheduler().runTaskLater(RoccetLobbySystem.getInstance(), new Runnable() {
 
