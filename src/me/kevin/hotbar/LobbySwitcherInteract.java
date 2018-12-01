@@ -51,7 +51,7 @@ public class LobbySwitcherInteract implements Listener {
                                  p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                              }
                          }, 20);
-                         
+                         p.openInventory(RoccetLobbySystem.switcher);
                      }
        }
     }
