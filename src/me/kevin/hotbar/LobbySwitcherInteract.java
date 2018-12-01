@@ -29,15 +29,7 @@ public class LobbySwitcherInteract implements Listener {
 		 if(e.getAction() == Action.RIGHT_CLICK_AIR | e.getAction() == Action.RIGHT_CLICK_BLOCK){
                      if(e.getMaterial().equals(Material.GLOWSTONE_DUST)) {
                          RoccetLobbySystem.switcher = p.getServer().createInventory(p, InventoryType.BREWING, "");
-                           Bukkit.getScheduler().runTaskLater(RoccetLobbySystem.getInstance(), new Runnable() {
-
-                             @Override
-                             public void run() {
-                                 RoccetLobbySystem.switcher.setItem(4, new ItemManager("§eWähle eine Lobby", Material.EMERALD, (byte) 0, 1, "").build());
-                                 p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
-                             }
-                         }, 20);
-                           
+                         
                            Bukkit.getScheduler().runTaskLater(RoccetLobbySystem.getInstance(), new Runnable() {
 
                              @Override
@@ -45,12 +37,26 @@ public class LobbySwitcherInteract implements Listener {
                                  if(RoccetLobbySystem.getCloud().getServerInfo("Lobby-1") == null) {
                                      RoccetLobbySystem.switcher.setItem(3, new ItemManager("§7Lobby-1 §8x §aAn", Material.STORAGE_MINECART, (byte) 0, 1, "").build());
                                  } else if(RoccetLobbySystem.getCloud().getServerInfo("Lobby-1") != null) {
-                                     RoccetLobbySystem.switcher.setItem(3, new ItemManager("§7Lobby-1 §8x §aAn", Material.MINECART, (byte) 0, 1, "").build());
+                                     RoccetLobbySystem.switcher.setItem(3, new ItemManager("§7Lobby-1 §8x §4Aus", Material.MINECART, (byte) 0, 1, "").build());
                                  }
                                  
                                  p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                              }
-                         }, 20);
+                         }, 15);
+                           
+                           Bukkit.getScheduler().runTaskLater(RoccetLobbySystem.getInstance(), new Runnable() {
+
+                             @Override
+                             public void run() {
+                                 if(RoccetLobbySystem.getCloud().getServerInfo("Lobby-2") == null) {
+                                     RoccetLobbySystem.switcher.setItem(0, new ItemManager("§7Lobby-2 §8x §aAn", Material.STORAGE_MINECART, (byte) 0, 1, "").build());
+                                 } else if(RoccetLobbySystem.getCloud().getServerInfo("Lobby-3") != null) {
+                                     RoccetLobbySystem.switcher.setItem(0, new ItemManager("§7Lobby-2 §8x §4Aus", Material.MINECART, (byte) 0, 1, "").build());
+                                 }
+                                 
+                                 p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
+                             }
+                         }, 15);
                          p.openInventory(RoccetLobbySystem.switcher);
                      }
        }
