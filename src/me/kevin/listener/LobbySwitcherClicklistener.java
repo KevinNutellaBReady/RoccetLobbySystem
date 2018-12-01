@@ -18,6 +18,13 @@ import org.bukkit.event.inventory.InventoryClickEvent;
  * @author haral
  */
 public class LobbySwitcherClicklistener implements Listener {
+    private RoccetLobbySystem plugin;
+
+    public LobbySwitcherClicklistener(RoccetLobbySystem plugin) {
+        this.plugin = plugin;
+    }
+    
+    
     @EventHandler
     public void onClick(InventoryClickEvent e) {
         Player p = (Player) e.getWhoClicked();

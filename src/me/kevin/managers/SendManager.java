@@ -16,6 +16,16 @@ import org.bukkit.entity.Player;
  * @author haral
  */
 public class SendManager {
+    private RoccetLobbySystem plugin;
+
+    public SendManager(RoccetLobbySystem plugin) {
+        this.plugin = plugin;
+    }
+
+    public SendManager() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     public void send(Player p, String server){
 		ByteArrayOutputStream b = new ByteArrayOutputStream();
 		DataOutputStream out = new DataOutputStream(b);
@@ -25,6 +35,6 @@ public class SendManager {
 		}catch(IOException e){
 			
 		}
-		p.sendPluginMessage(RoccetLobbySystem.getInstance(), "BungeeCord", b.toByteArray());
+		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
 	}
 }
