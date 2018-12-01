@@ -29,8 +29,8 @@ public class Joinlistener implements Listener {
         Player p = e.getPlayer();
         p.setGameMode(GameMode.ADVENTURE);
         p.setHealth(1);
-        p.setMaxHealth(1);
-        p.setFoodLevel(10);
+        p.setMaxHealth(20);
+        p.setFoodLevel(20);
         
         if(!p.hasPlayedBefore()) {
             Items.setItems(p);
