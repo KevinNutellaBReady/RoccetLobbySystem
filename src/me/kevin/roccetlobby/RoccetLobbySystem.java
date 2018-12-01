@@ -58,7 +58,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     this.getServer().getPluginManager().registerEvents( this, this);
     Bukkit.getPluginManager().registerEvents(this, this);
     
-    Bukkit.getPluginManager().registerEvents(new Joinlistener(), this);
+    Bukkit.getPluginManager().registerEvents(new Joinlistener(this), this);
     Bukkit.getPluginManager().registerEvents(new Playerhider(), this);
     Bukkit.getPluginManager().registerEvents(new Jumppads(), this);
     Bukkit.getPluginManager().registerEvents(new Quitlistener(), this);
