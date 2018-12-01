@@ -34,7 +34,7 @@ public class Playerhider implements Listener {
                             }
                         } else if(!hidden.contains(p)) {
                             hidden.add(p);
-                             p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du hast nun alle Spieler wieder §4versteckt");
+                            p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du hast nun alle Spieler wieder §4versteckt");
                             for(Player all : Bukkit.getOnlinePlayers()) {
                                 all.showPlayer(p);
                                 p.showPlayer(all);
