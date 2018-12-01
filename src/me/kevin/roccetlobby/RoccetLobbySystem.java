@@ -8,6 +8,7 @@ package me.kevin.roccetlobby;
 import de.dytanic.cloudnet.api.CloudAPI;
 import me.kevin.commands.Build;
 import me.kevin.hotbar.LobbySwitcherInteract;
+import me.kevin.hotbar.NavigatorInteract;
 import me.kevin.hotbar.Playerhider;
 import me.kevin.listener.Joinlistener;
 import me.kevin.listener.Jumppads;
@@ -66,6 +67,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(new LobbySwitcherInteract(), this);
     Bukkit.getPluginManager().registerEvents(new Protection(), this);
     Bukkit.getPluginManager().registerEvents(new LobbySwitcherClicklistener(this), this);
+     Bukkit.getPluginManager().registerEvents(new NavigatorInteract(), this);
     
     }
      public void loadConfig() {
