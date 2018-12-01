@@ -15,6 +15,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
@@ -73,7 +74,13 @@ public class Protection implements Listener {
     }
     @EventHandler
     public void onClick(InventoryClickEvent e) {
-        e.setCancelled(true);
+        ClickType p = e.getClick();
+        if(Build.build.contains(p)) {
+        } else if(!Build.build.contains(p)) {
+            e.setCancelled(true);
+        } else {
+            e.setCancelled(false);
+        }
     }
     @EventHandler
     public void onHotbar(PlayerItemHeldEvent e) {
