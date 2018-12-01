@@ -11,18 +11,20 @@ import me.kevin.hotbar.PlayerHider;
 import me.kevin.listener.Joinlistener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  *
  * @author haral
  */
-public class RoccetLobbySystem extends JavaPlugin implements Listener{
+public class RoccetLobbySystem extends JavaPlugin implements Listener {
     
-    public  String prefix = "§6§lLobby §7: ";
-    public  String noperms = getPrefix() + "§cDazu hast du keine Rechte";
-    public  CloudAPI cloud = CloudAPI.getInstance();
-    public  PointsAPI pointsAPI;
+    public static Inventory nav = null;
+    
+    public String prefix = "§6§lLobby §7: ";
+    public String noperms = getPrefix() + "§cDazu hast du keine Rechte";
+    public CloudAPI cloud = CloudAPI.getInstance();
     private static RoccetLobbySystem instance;
     
     @Override
@@ -70,9 +72,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener{
         return noperms;
     }
 
-    public  PointsAPI getPointsAPI() {
-        return pointsAPI;
-    }
+    
 
     public static RoccetLobbySystem getInstance() {
         return instance;

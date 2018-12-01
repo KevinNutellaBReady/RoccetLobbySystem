@@ -5,6 +5,7 @@
  */
 package me.kevin.listener;
 
+import me.BukkitPVP.PointsAPI.PointsAPI;
 import me.kevin.hotbar.Items;
 import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.entity.Player;
@@ -34,7 +35,7 @@ public class Joinlistener implements Listener {
         
         if(!p.hasPlayedBefore()) {
             Items.setItems(p);
-            plugin.getPointsAPI().addPoints(p, 10);
+            PointsAPI.addPoints(p, 10);
             p.sendTitle("§7Willkomen", "§b" + p.getName());
             p.sendMessage(plugin.getPrefix() + "§7Hallo, es sind gerade §b" + plugin.getCloud().getOnlineCount() + " §b§lvon §b100");
         } else if(p.hasPlayedBefore()) {

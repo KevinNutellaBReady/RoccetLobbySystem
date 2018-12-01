@@ -18,21 +18,22 @@ public class Items {
     public static void setItems(Player p) {
         
         if(p.hasPermission("lobby.specialitems")) {
+            p.getInventory().clear();
         p.getInventory().setItem(0, new ItemManager("§6§lNavigator", Material.BUCKET, (byte)0, 1, "").build());
         p.getInventory().setItem(1, new ItemManager("§e§lSpieler-Verstecken §7x §aAn", Material.GOLDEN_APPLE, (byte)0, 1, "").build());
         p.getInventory().setItem(3, new ItemManager("§e§lSiltentLobby", Material.BEACON, (byte)0, 1, "").build());
         p.getInventory().setItem(4, new ItemManager("§4§lKein Gadget ausgewählt", Material.BARRIER, (byte)0, 1, "").build());
         p.getInventory().setItem(6, new ItemManager("§c§lDein Inventar", Material.CHEST, (byte)0, 1, "").build());
         p.getInventory().setItem(7, new ItemManager("§e§lLobbySwitcher", Material.CHEST, (byte)0, 1, "").build());
-        }
-        
+        } else {
+        p.getInventory().clear();
         p.getInventory().setItem(0, new ItemManager("§6§lNavigator", Material.BUCKET, (byte)0, 1, "").build());
         p.getInventory().setItem(1, new ItemManager("§e§lSpieler-Verstecken", Material.GOLDEN_APPLE, (byte)0, 1, "").build());
         p.getInventory().setItem(4, new ItemManager("§4§lKein Gadget ausgewählt", Material.BARRIER, (byte)0, 1, "").build());
         p.getInventory().setItem(6, new ItemManager("§c§lDein Inventar", Material.CHEST, (byte)0, 1, "").build());
         p.getInventory().setItem(7, new ItemManager("§e§lLobbySwitcher", Material.CHEST, (byte)0, 1, "").build());
   
-        
+        }
     }
     
 }
