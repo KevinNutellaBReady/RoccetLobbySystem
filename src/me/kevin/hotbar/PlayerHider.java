@@ -40,7 +40,7 @@ public class PlayerHider implements Listener {
 		 
 		 if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
 	            if(e.getItem() != null){
-	                if(e.getItem().getType() == Material.GOLDEN_APPLE){
+	                if(e.getItem().getType() == Material.BONE){
 	                    
 
 	                        if(hasCooldown(p)){
