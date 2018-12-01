@@ -28,7 +28,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     public static String prefix = "§6§lLobby §7: ";
     public static String noperms = getPrefix() + "§c§lDazu hast du keine Rechte";
     private static RoccetLobbySystem instance;
-    private CloudAPI cloud;
+    private static CloudAPI cloud;
     
     @Override
    public void onEnable() {
@@ -66,6 +66,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
      getConfig().options().header("Das ist die Config vom RoccetLobbySystem");
       getConfig().options().copyDefaults(true);
        saveConfig();
+         getCloud().
    
      }
     public static String getPrefix() {
@@ -76,13 +77,11 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
         return noperms;
     }
 
-    
-
     public static RoccetLobbySystem getInstance() {
         return instance;
     }
 
-    public CloudAPI getCloud() {
+    public static CloudAPI getCloud() {
         return cloud;
     }
     

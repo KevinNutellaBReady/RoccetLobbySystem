@@ -16,6 +16,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
@@ -87,6 +88,10 @@ public class Protection implements Listener {
     public void onHotbar(PlayerItemHeldEvent e) {
         Player p = e.getPlayer();
         p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
+    }
+    @EventHandler
+    public void onFeed(FoodLevelChangeEvent e) {
+        e.setCancelled(true);
     }
     
 }
