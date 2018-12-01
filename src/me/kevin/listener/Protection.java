@@ -76,11 +76,12 @@ public class Protection implements Listener {
     public void onClick(InventoryClickEvent e) {
         ClickType p = e.getClick();
         if(Build.build.contains(p)) {
+             e.setCancelled(false);
         } else if(!Build.build.contains(p)) {
             e.setCancelled(true);
-        } else {
-            e.setCancelled(false);
-        }
+        } 
+           
+        
     }
     @EventHandler
     public void onHotbar(PlayerItemHeldEvent e) {
