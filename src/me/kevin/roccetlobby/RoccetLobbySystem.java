@@ -6,7 +6,6 @@
 package me.kevin.roccetlobby;
 
 import de.dytanic.cloudnet.api.CloudAPI;
-import me.BukkitPVP.PointsAPI.PointsAPI;
 import me.kevin.hotbar.PlayerHider;
 import me.kevin.listener.Joinlistener;
 import org.bukkit.Bukkit;
@@ -24,7 +23,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     
     public String prefix = "§6§lLobby §7: ";
     public String noperms = getPrefix() + "§cDazu hast du keine Rechte";
-    public CloudAPI cloud = CloudAPI.getInstance();
+    public CloudAPI cloud;
     private static RoccetLobbySystem instance;
     
     @Override
@@ -35,6 +34,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
        registerEvents();
        
        instance = this;
+       cloud = CloudAPI.getInstance();
     
        
    }
@@ -60,7 +60,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
 }
     
     
-    public  CloudAPI getCloud() {
+    public CloudAPI getCloud() {
         return cloud;
     }
    

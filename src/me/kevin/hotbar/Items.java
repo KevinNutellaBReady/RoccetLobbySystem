@@ -6,6 +6,7 @@
 package me.kevin.hotbar;
 
 import me.kevin.managers.ItemManager;
+import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
@@ -32,7 +33,7 @@ public class Items {
         p.getInventory().setItem(4, new ItemManager("§4§lKein Gadget ausgewählt", Material.BARRIER, (byte)0, 1, "").build());
         p.getInventory().setItem(6, new ItemManager("§c§lDein Inventar", Material.CHEST, (byte)0, 1, "").build());
         p.getInventory().setItem(7, new ItemManager("§e§lLobbySwitcher", Material.CHEST, (byte)0, 1, "").build());
-  
+       
         }
     }
     

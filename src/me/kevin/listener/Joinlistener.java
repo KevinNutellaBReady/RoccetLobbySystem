@@ -37,11 +37,11 @@ public class Joinlistener implements Listener {
             Items.setItems(p);
             PointsAPI.addPoints(p, 10);
             p.sendTitle("§7Willkomen", "§b" + p.getName());
-            p.sendMessage(plugin.getPrefix() + "§7Hallo, es sind gerade §b" + plugin.getCloud().getOnlineCount() + " §b§lvon §b100");
+            
         } else if(p.hasPlayedBefore()) {
             Items.setItems(p);
             p.sendTitle("§7Willkomen", "§b" + p.getName());
-            p.sendMessage(plugin.getPrefix() + "§7Hallo, es sind gerade §b" + plugin.getCloud().getOnlineCount() + " §b§lvon §b100");
+            
         }
         
         
