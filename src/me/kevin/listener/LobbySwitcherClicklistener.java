@@ -5,10 +5,12 @@
  */
 package me.kevin.listener;
 
+import de.dytanic.cloudnet.api.CloudAPI;
+import de.dytanic.cloudnet.api.player.PlayerExecutorBridge;
+import de.dytanic.cloudnet.lib.player.CloudPlayer;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import me.kevin.managers.SendManager;
 import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -35,49 +37,19 @@ public class LobbySwitcherClicklistener implements Listener {
            e.setCancelled(true);
                if(e.getCurrentItem().getType() == Material.STORAGE_MINECART) {
                   if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-1 §8x §aAn")) {
-                      ByteArrayOutputStream b = new ByteArrayOutputStream();
-		DataOutputStream out = new DataOutputStream(b);
-		try{
-			out.writeUTF("Connect");
-			out.writeUTF("Lobby-1");
-		}catch(IOException a){
-			
-		}
-		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+                      
+                      PlayerExecutorBridge.INSTANCE.sendPlayer(RoccetLobbySystem.getCloud().getOnlinePlayer(p.getUniqueId()), "Lobby-1");
+		
                 
                       p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zu Lobby-1 gesendet");
                   } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-2 §8x §aAn")) {
-                       ByteArrayOutputStream b = new ByteArrayOutputStream();
-		DataOutputStream out = new DataOutputStream(b);
-		try{
-			out.writeUTF("Connect");
-			out.writeUTF("Lobby-2");
-		}catch(IOException a){
-			
-		}
-		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+                       PlayerExecutorBridge.INSTANCE.sendPlayer(RoccetLobbySystem.getCloud().getOnlinePlayer(p.getUniqueId()), "Lobby-2");
                       p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zu Lobby-2 gesendet");
                   } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-3 §8x §aAn")) {
-                      ByteArrayOutputStream b = new ByteArrayOutputStream();
-		DataOutputStream out = new DataOutputStream(b);
-		try{
-			out.writeUTF("Connect");
-			out.writeUTF("Lobby-3");
-		}catch(IOException a){
-			
-		}
-		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+                     PlayerExecutorBridge.INSTANCE.sendPlayer(RoccetLobbySystem.getCloud().getOnlinePlayer(p.getUniqueId()), "Lobby-3");
                       p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zu Lobby-3 gesendet");
                   } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§7Lobby-4 §8x §aAn")) {
-                       ByteArrayOutputStream b = new ByteArrayOutputStream();
-		DataOutputStream out = new DataOutputStream(b);
-		try{
-			out.writeUTF("Connect");
-			out.writeUTF("Lobby-4");
-		}catch(IOException a){
-			
-		}
-		p.sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+                       PlayerExecutorBridge.INSTANCE.sendPlayer(RoccetLobbySystem.getCloud().getOnlinePlayer(p.getUniqueId()), "Lobby-4");
                       p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du wurdest zu Lobby-4 gesendet");
                   }
            }
