@@ -18,6 +18,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
  */
 public class Joinlistener implements Listener {
     
+    @SuppressWarnings("FieldMayBeFinal")
     private RoccetLobbySystem plugin;
 
     public Joinlistener(RoccetLobbySystem plugin) {
@@ -33,12 +34,13 @@ public class Joinlistener implements Listener {
         
         if(!p.hasPlayedBefore()) {
             Items.setItems(p);
+            plugin.getPointsAPI().addPoints(p, 10);
             p.sendTitle("§7Willkomen", "§b" + p.getName());
-            p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Hallo, es sind gerade §b" + RoccetLobbySystem.getCloud().getOnlineCount() + " §b§lvon §b100");
+            p.sendMessage(plugin.getPrefix() + "§7Hallo, es sind gerade §b" + plugin.getCloud().getOnlineCount() + " §b§lvon §b100");
         } else if(p.hasPlayedBefore()) {
             Items.setItems(p);
             p.sendTitle("§7Willkomen", "§b" + p.getName());
-            p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Hallo, es sind gerade §b" + RoccetLobbySystem.getCloud().getOnlineCount() + " §b§lvon §b100");
+            p.sendMessage(plugin.getPrefix() + "§7Hallo, es sind gerade §b" + plugin.getCloud().getOnlineCount() + " §b§lvon §b100");
         }
         
         
