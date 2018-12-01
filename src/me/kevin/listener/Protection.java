@@ -8,6 +8,7 @@ package me.kevin.listener;
 import me.kevin.commands.Build;
 import org.bukkit.EntityEffect;
 import org.bukkit.Sound;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -74,13 +75,12 @@ public class Protection implements Listener {
     }
     @EventHandler
     public void onClick(InventoryClickEvent e) {
-        ClickType p = e.getClick();
-        if(Build.build.contains(p)) {
-             e.setCancelled(false);
+        HumanEntity p = e.getWhoClicked();
+         if(Build.build.contains(p)) {
+            e.setCancelled(false);
         } else if(!Build.build.contains(p)) {
             e.setCancelled(true);
-        } 
-           
+        }
         
     }
     @EventHandler
