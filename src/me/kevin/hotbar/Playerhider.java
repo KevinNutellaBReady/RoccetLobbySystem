@@ -15,8 +15,6 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class Playerhider implements Listener {
     
-    
-    
 
     //<editor-fold defaultstate="collapsed" desc="Arraylisten">
             private static CopyOnWriteArrayList<Player> hidden = new CopyOnWriteArrayList<>();
