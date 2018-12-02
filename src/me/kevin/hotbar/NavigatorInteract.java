@@ -100,7 +100,7 @@ public class NavigatorInteract implements Listener {
                      @Override
                      public void run() {
                         RoccetLobbySystem.nav.setItem(36, new ItemManager("§4§lKommt bald", Material.BARRIER, (byte)0, 1, "").build());
-                        p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
+                        p.playSound(p.getLocation(), Sound.BLAZE_DEATH, 1, 1);
                      }
                  }, 21);
                  
