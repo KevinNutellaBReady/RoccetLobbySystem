@@ -37,7 +37,6 @@ public class Joinlistener implements Listener {
         p.setHealth(herzen);
         p.setMaxHealth(maxherzen);
         p.setFoodLevel(7);
-        p.setExp(2018);
         Items.setItems(p);
         ActionbarManager.SetActionbar(p, "§7Wir sind in der Beta");
         TitleManager.setTitle(p, "§7Willkommen §b", p.getName());
