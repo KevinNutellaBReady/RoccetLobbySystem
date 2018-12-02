@@ -97,7 +97,6 @@ public class NavigatorInteract implements Listener {
                      }
                  }, 19);
                  Bukkit.getScheduler().runTaskLater(RoccetLobbySystem.getInstance(), new Runnable() {
-
                      @Override
                      public void run() {
                         RoccetLobbySystem.nav.setItem(36, new ItemManager("§4§lKommt bald", Material.BARRIER, (byte)0, 1, "").build());

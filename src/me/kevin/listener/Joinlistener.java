@@ -35,17 +35,9 @@ public class Joinlistener implements Listener {
         p.setHealth(herzen);
         p.setMaxHealth(maxherzen);
         p.setFoodLevel(20);
-        
-        if(!p.hasPlayedBefore()) {
-            Items.setItems(p);
-            PointsAPI.addPoints(p, 10);
-            p.sendTitle("§7Willkommen", "§b" + p.getName());
-            
-        } else if(p.hasPlayedBefore()) {
-            Items.setItems(p);
-            p.sendTitle("§7Willkommen", "§b" + p.getName());
-            
-        }
+        p.setExp(2018);
+        Items.setItems(p);
+        p.sendTitle(null, null);
         
         
     }

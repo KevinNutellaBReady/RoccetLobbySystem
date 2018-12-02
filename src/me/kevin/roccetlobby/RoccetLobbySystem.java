@@ -15,6 +15,7 @@ import me.kevin.listener.Jumppads;
 import me.kevin.listener.LobbySwitcherClicklistener;
 import me.kevin.listener.Protection;
 import me.kevin.listener.Quitlistener;
+import me.kevin.managers.ActionbarManager;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
@@ -40,10 +41,16 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
        loadConfig();
        registerCommands();
        registerEvents();
-       
        instance = this;
        cloud = CloudAPI.getInstance();
   
+       Bukkit.getScheduler().scheduleSyncRepeatingTask(getInstance(), new Runnable() {
+
+           @Override
+           public void run() {
+               ActionbarManager.updateTimeBar();
+           }
+       }, 0L,20L);
     
        
    }
@@ -67,7 +74,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(new LobbySwitcherInteract(), this);
     Bukkit.getPluginManager().registerEvents(new Protection(), this);
     Bukkit.getPluginManager().registerEvents(new LobbySwitcherClicklistener(this), this);
-     Bukkit.getPluginManager().registerEvents(new NavigatorInteract(), this);
+    Bukkit.getPluginManager().registerEvents(new NavigatorInteract(), this);
     
     }
      public void loadConfig() {
