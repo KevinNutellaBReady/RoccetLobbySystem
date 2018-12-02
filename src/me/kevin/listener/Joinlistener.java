@@ -5,11 +5,11 @@
  */
 package me.kevin.listener;
 
-import me.BukkitPVP.PointsAPI.PointsAPI;
 import me.kevin.hotbar.Items;
 import me.kevin.managers.ActionbarManager;
 import me.kevin.managers.TitleManager;
 import me.kevin.roccetlobby.RoccetLobbySystem;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -31,6 +31,7 @@ public class Joinlistener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         e.setJoinMessage(null);
         Player p = e.getPlayer();
+        Bukkit.dispatchCommand(p, "warp spawn");
         p.setGameMode(GameMode.ADVENTURE);
         Integer herzen = plugin.getConfig().getInt("Settings.herzen");
         Integer maxherzen = plugin.getConfig().getInt("Settings.maxherzen");

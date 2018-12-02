@@ -23,6 +23,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerItemHeldEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
+import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.Inventory;
 
 /**
@@ -91,6 +92,10 @@ public class Protection implements Listener {
     }
     @EventHandler
     public void onFeed(FoodLevelChangeEvent e) {
+        e.setCancelled(true);
+    }
+    @EventHandler
+    public void onWeatherChange(WeatherChangeEvent e) {
         e.setCancelled(true);
     }
     

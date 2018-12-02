@@ -60,7 +60,7 @@ public class NavigatorInteract implements Listener {
 
                      @Override
                      public void run() {
-                        RoccetLobbySystem.nav.setItem(24, new ItemManager("§d§lMLGRush", Material.STICK, (byte)0, 1, Enchantment.DURABILITY).build());
+                        RoccetLobbySystem.nav.setItem(24, new ItemManager("§d§lMLGRush", Material.STICK, (byte)0, 1, "").build());
                         p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                      }
                  }, 11);
@@ -68,7 +68,7 @@ public class NavigatorInteract implements Listener {
 
                      @Override
                      public void run() {
-                        RoccetLobbySystem.nav.setItem(40, new ItemManager("§d§lBedwars", Material.BED, (byte)0, 1, Enchantment.DURABILITY).build());
+                        RoccetLobbySystem.nav.setItem(40, new ItemManager("§d§lBedwars", Material.BED, (byte)0, 1, "").build());
                         p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                      }
                  }, 13);
@@ -76,7 +76,7 @@ public class NavigatorInteract implements Listener {
 
                      @Override
                      public void run() {
-                        RoccetLobbySystem.nav.setItem(0, new ItemManager("§4§lKommt bald", Material.BARRIER, (byte)0, 1, Enchantment.DURABILITY).build());
+                        RoccetLobbySystem.nav.setItem(0, new ItemManager("§4§lKommt bald", Material.BARRIER, (byte)0, 1, "").build());
                         p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                      }
                  }, 15);
@@ -84,7 +84,7 @@ public class NavigatorInteract implements Listener {
 
                      @Override
                      public void run() {
-                        RoccetLobbySystem.nav.setItem(8, new ItemManager("§4§lKommt bald", Material.BARRIER, (byte)0, 1, Enchantment.DURABILITY).build());
+                        RoccetLobbySystem.nav.setItem(8, new ItemManager("§4§lKommt bald", Material.BARRIER, (byte)0, 1, "").build());
                         p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                      }
                  }, 17);
