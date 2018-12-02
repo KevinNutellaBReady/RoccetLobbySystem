@@ -7,6 +7,8 @@ package me.kevin.listener;
 
 import me.BukkitPVP.PointsAPI.PointsAPI;
 import me.kevin.hotbar.Items;
+import me.kevin.managers.ActionbarManager;
+import me.kevin.managers.TitleManager;
 import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -37,7 +39,8 @@ public class Joinlistener implements Listener {
         p.setFoodLevel(7);
         p.setExp(2018);
         Items.setItems(p);
-        p.sendTitle(null, null);
+        ActionbarManager.SetActionbar(p, "§7Wir sind in der Beta");
+        TitleManager.setTitle(p, "§7Willkommen §b", p.getName());
         
         
     }

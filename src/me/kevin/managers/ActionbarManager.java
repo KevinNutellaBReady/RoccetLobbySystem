@@ -19,12 +19,14 @@ import org.bukkit.entity.Player;
 public class ActionbarManager {
    
     
-    public static void SetActionbar() {
+    public static void SetActionbar(Player p, String text) {
         for(Player all : Bukkit.getOnlinePlayers()) {
-            String Beta = "§7Wir sind in der §bBeta";
-            ActionBar.sendAction(all, Beta);
+            ActionBar.sendAction(all, text);
         }
     }
+     
+    
+    
     
 }
 
