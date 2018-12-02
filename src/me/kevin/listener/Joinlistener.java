@@ -34,7 +34,7 @@ public class Joinlistener implements Listener {
         Integer maxherzen = plugin.getConfig().getInt("Settings.maxherzen");
         p.setHealth(herzen);
         p.setMaxHealth(maxherzen);
-        p.setFoodLevel(20);
+        p.setFoodLevel(7);
         p.setExp(2018);
         Items.setItems(p);
         p.sendTitle(null, null);

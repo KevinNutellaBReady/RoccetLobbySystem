@@ -43,14 +43,6 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
        registerEvents();
        instance = this;
        cloud = CloudAPI.getInstance();
-  
-       Bukkit.getScheduler().scheduleSyncRepeatingTask(getInstance(), new Runnable() {
-
-           @Override
-           public void run() {
-               ActionbarManager.updateTimeBar();
-           }
-       }, 0L,20L);
     
        
    }

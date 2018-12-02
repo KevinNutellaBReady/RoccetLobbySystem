@@ -5,34 +5,26 @@
  */
 package me.kevin.managers;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
+import me.MineHome.PointsAPI.Displays.ActionBar;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
+
+
+
 
 /**
  *
  * @author haral
  */
 public class ActionbarManager {
-    private static void sendActionbar(final Player player, final String message) {
-        final IChatBaseComponent iChatBaseComponent = IChatBaseComponent.ChatSerializer
-                .a("{\"text\": \"" + ChatColor.translateAlternateColorCodes('&', message) + "\"}");
-        final PacketPlayOutChat packet = new PacketPlayOutChat(iChatBaseComponent, (byte) 2);
-        ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
-    }
+   
     
-    
-    public static void updateTimeBar() {
-        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-        final String message = "Aktuelle Zeit: " + simpleDateFormat.format(new Date());
+    public static void SetActionbar() {
         for(Player all : Bukkit.getOnlinePlayers()) {
-            sendActionbar(all, message);
+            String Beta = "§7Wir sind in der §bBeta";
+            ActionBar.sendAction(all, Beta);
         }
     }
+    
 }
 
