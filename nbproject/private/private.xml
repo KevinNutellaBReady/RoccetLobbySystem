@@ -5,7 +5,8 @@
         <group>
             <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetLobbySystem/src/me/kevin/hotbar/Playerhider.java</file>
             <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetLobbySystem/src/me/kevin/roccetlobby/RoccetLobbySystem.java</file>
-            <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetLobbySystem/src/me/kevin/hotbar/Items.java</file>
+            <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetLobbySystem/src/me/kevin/listener/Joinlistener.java</file>
+            <file>file:/C:/Users/haral/OneDrive/Documents/NetBeansProjects/RoccetLobbySystem/src/me/kevin/hotbar/NavigatorInteract.java</file>
         </group>
     </open-files>
 </project-private>
