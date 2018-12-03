@@ -31,7 +31,6 @@ public class Joinlistener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         e.setJoinMessage(null);
         Player p = e.getPlayer();
-        Bukkit.dispatchCommand(p, "warp spawn");
         p.setGameMode(GameMode.ADVENTURE);
         Integer herzen = plugin.getConfig().getInt("Settings.herzen");
         Integer maxherzen = plugin.getConfig().getInt("Settings.maxherzen");
@@ -41,6 +40,7 @@ public class Joinlistener implements Listener {
         Items.setItems(p);
         ActionbarManager.SetActionbar(p, "§7Wir sind in der Beta");
         TitleManager.setTitle(p, "§7Willkommen §b", p.getName());
+        p.chat("/warp spawn");
         
         
     }

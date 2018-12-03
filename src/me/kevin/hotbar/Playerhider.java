@@ -3,13 +3,16 @@ package me.kevin.hotbar;
 
 
 import java.util.concurrent.CopyOnWriteArrayList;
+import me.kevin.managers.ItemManager;
 import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 
@@ -25,28 +28,39 @@ public class Playerhider implements Listener {
 		Player p = e.getPlayer();
 		 if(e.getAction() == Action.RIGHT_CLICK_AIR | e.getAction() == Action.RIGHT_CLICK_BLOCK){
 	            if(e.getMaterial().equals(Material.BLAZE_ROD)) {
-                        if(hidden.contains(p)) {
-                            hidden.remove(p);
-                              p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du hast nun alle Spieler wieder §4versteckt");
-                            for(Player all : Bukkit.getOnlinePlayers()) {
-                                all.hidePlayer(p);
-                                p.hidePlayer(all);
+                        RoccetLobbySystem.playerhider = p.getServer().createInventory(null, InventoryType.HOPPER, "§5Wähle eine Option");
+                        
+                        Bukkit.getScheduler().runTaskLater(RoccetLobbySystem.getInstance(), new Runnable() {
+
+                            @Override
+                            public void run() {
+                               RoccetLobbySystem.playerhider.setItem(0, new ItemManager("§a§lAlle Spieler anzeigen", Material.INK_SACK, (byte) 10, 1, "").build());
                             }
-                        } else if(!hidden.contains(p)) {
-                            hidden.add(p);
-                             p.sendMessage(RoccetLobbySystem.getPrefix() + "§7Du hast nun alle Spieler wieder §aangezeigt");
-                            for(Player all : Bukkit.getOnlinePlayers()) {
-                                all.showPlayer(p);
-                                p.showPlayer(all);
+                        }, 5);
+                        Bukkit.getScheduler().runTaskLater(RoccetLobbySystem.getInstance(), new Runnable() {
+
+                            @Override
+                            public void run() {
+                               RoccetLobbySystem.playerhider.setItem(2, new ItemManager("§e§lVIP Spieler anzeigen", Material.INK_SACK, (byte) 5, 1, "").build());
                             }
-                        }
-                    }
+                        }, 5);
+                        Bukkit.getScheduler().runTaskLater(RoccetLobbySystem.getInstance(), new Runnable() {
+
+                            @Override
+                            public void run() {
+                               RoccetLobbySystem.playerhider.setItem(4, new ItemManager("§4§lAlle Spieler verstecken", Material.INK_SACK, (byte) 1, 1, "").build());
+                            }
+                        }, 5);
+                        
+                        p.openInventory(RoccetLobbySystem.playerhider);
+                    
 	
 		
 	}
        }
         
 	}
+}
 	
 
 
