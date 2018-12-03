@@ -28,6 +28,7 @@ public class PlayerhiderClicklistener implements Listener {
                     for(Player all : Bukkit.getOnlinePlayers()) {
                         p.showPlayer(all);
                     }
+                    p.closeInventory();
                     p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                 } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§e§lVIP Spieler anzeigen")) {
                     for(Player vip : Bukkit.getOnlinePlayers()) {
@@ -35,12 +36,14 @@ public class PlayerhiderClicklistener implements Listener {
                             p.showPlayer(vip);
                         }
                     }
+                    p.closeInventory();
                     p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                 } else if(e.getCurrentItem().getItemMeta().getDisplayName().equalsIgnoreCase("§4§lAlle Spieler verstecken")) {
                     for(Player all : Bukkit.getOnlinePlayers()) {
                         p.hidePlayer(all);
                         all.hidePlayer(p);
                     }
+                    p.closeInventory();
                     p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                 }
             }
