@@ -4,3 +4,6 @@ author: Kevin
 main: me.kevin.roccetlobby.RoccetLobbySystem
 commands:
     build:
+    fly:
+    gamemode:
+        aliases: [gm]

@@ -7,6 +7,8 @@ package me.kevin.roccetlobby;
 
 import de.dytanic.cloudnet.api.CloudAPI;
 import me.kevin.commands.Build;
+import me.kevin.commands.Fly;
+import me.kevin.commands.Gamemode;
 import me.kevin.hotbar.LobbySwitcherInteract;
 import me.kevin.hotbar.NavigatorInteract;
 import me.kevin.hotbar.Playerhider;
@@ -55,6 +57,8 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
    
     public void registerCommands() {
         getCommand("build").setExecutor(new Build());
+        getCommand("fly").setExecutor(new Fly());
+        getCommand("gamemode").setExecutor(new Gamemode());
     }
     public void registerEvents() {
     this.getServer().getPluginManager().registerEvents( this, this);
