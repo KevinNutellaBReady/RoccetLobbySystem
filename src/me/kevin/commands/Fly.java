@@ -5,6 +5,13 @@
  */
 package me.kevin.commands;
 
+import de.dytanic.cloudnet.api.CloudAPI;
+import de.dytanic.cloudnet.bridge.BukkitBootstrap;
+import de.dytanic.cloudnet.bridge.CloudServer;
+import de.dytanic.cloudnet.lib.player.CloudPlayer;
+import de.dytanic.cloudnet.lib.player.OfflinePlayer;
+import de.dytanic.cloudnet.lib.player.PlayerConnection;
+import de.dytanic.cloudnet.lib.server.ServerState;
 import java.util.ArrayList;
 import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.command.Command;
@@ -19,7 +26,7 @@ import org.bukkit.entity.Player;
 public class Fly implements CommandExecutor {
     
      private static ArrayList<Player> flylist = new ArrayList<>();
-
+     private ServerState serverState;
     @Override
     public boolean onCommand(CommandSender cs, Command cmd, String label, String[] args) {
         if(cmd.getName().equalsIgnoreCase("fly")) {
@@ -45,5 +52,6 @@ public class Fly implements CommandExecutor {
         
         return false;
     }
+    
     
 }

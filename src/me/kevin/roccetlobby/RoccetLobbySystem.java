@@ -34,7 +34,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     public static Inventory playerhider = null;
     public static Inventory switcher = null;
     
-    public static String prefix = "§6§lLobby §7: ";
+    public static String prefix = "§6§lLobby §7● ";
     public static String noperms = getPrefix() + "§c§lDazu hast du keine Rechte";
     private static RoccetLobbySystem instance;
     private static CloudAPI cloud;
@@ -97,6 +97,9 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     public static CloudAPI getCloud() {
         return cloud;
     }
+
+
+    
     
    
     

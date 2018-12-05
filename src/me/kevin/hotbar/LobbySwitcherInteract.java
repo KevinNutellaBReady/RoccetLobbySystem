@@ -10,7 +10,6 @@ import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Sound;
-import org.bukkit.craftbukkit.v1_8_R3.CraftArt;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -32,6 +31,21 @@ public class LobbySwitcherInteract implements Listener {
                          
                            Bukkit.getScheduler().runTaskLater(RoccetLobbySystem.getInstance(), new Runnable() {
 
+                             @Override
+                             protected void finalize() throws Throwable {
+                                 super.finalize(); //To change body of generated methods, choose Tools | Templates.
+                             }
+
+                             @Override
+                             public boolean equals(Object o) {
+                                 return super.equals(o); //To change body of generated methods, choose Tools | Templates.
+                             }
+
+                             @Override
+                             protected Object clone() throws CloneNotSupportedException {
+                                 return super.clone(); //To change body of generated methods, choose Tools | Templates.
+                             }
+                               
                              @Override
                              public void run() {
                                  if(RoccetLobbySystem.getCloud().getServerInfo("Lobby-1") != null) {
