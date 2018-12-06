@@ -23,7 +23,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
-import me.kevin.managers.
 
 /**
  *
@@ -38,7 +37,6 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     public static String prefix = "§6§lLobby §7● ";
     public static String noperms = getPrefix() + "§c§lDazu hast du keine Rechte";
     private static RoccetLobbySystem instance;
-    private static MapUtils maputils;
     private static CloudAPI cloud;
     
     @Override
