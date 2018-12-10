@@ -31,6 +31,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class RoccetLobbySystem extends JavaPlugin implements Listener {
     
     public static Inventory nav = null;
+    public static Inventory quicknav = null;
     public static Inventory playerhider = null;
     public static Inventory switcher = null;
     
