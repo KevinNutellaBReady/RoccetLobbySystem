@@ -6,6 +6,7 @@
 package me.kevin.listener;
 
 import de.dytanic.cloudnet.api.player.PlayerExecutorBridge;
+import me.kevin.managers.QuickJoinManager;
 import me.kevin.roccetlobby.RoccetLobbySystem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
