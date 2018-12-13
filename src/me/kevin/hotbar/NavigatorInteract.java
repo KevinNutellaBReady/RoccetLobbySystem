@@ -59,7 +59,7 @@ public class NavigatorInteract implements Listener {
 
                      @Override
                      public void run() {
-                        RoccetLobbySystem.nav.setItem(24, new ItemManager("§d§lMLGRush", Material.STICK, (byte)0, 1, "").build());
+                        RoccetLobbySystem.nav.setItem(24, new ItemManager("§d§lOneline", Material.STICK, (byte)0, 1, "").build());
                         p.playSound(p.getLocation(), Sound.CLICK, 1, 1);
                      }
                  }, 11);

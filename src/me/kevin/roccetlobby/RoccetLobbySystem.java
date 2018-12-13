@@ -18,6 +18,7 @@ import me.kevin.listener.LobbySwitcherClicklistener;
 import me.kevin.listener.NavigatorClickListener;
 import me.kevin.listener.PlayerhiderClicklistener;
 import me.kevin.listener.Protection;
+import me.kevin.listener.QuickJoinClickListener;
 import me.kevin.listener.Quitlistener;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -76,6 +77,7 @@ public class RoccetLobbySystem extends JavaPlugin implements Listener {
     Bukkit.getPluginManager().registerEvents(new NavigatorInteract(), this);
     Bukkit.getPluginManager().registerEvents(new NavigatorClickListener(), this);
     Bukkit.getPluginManager().registerEvents(new PlayerhiderClicklistener(), this);
+    Bukkit.getPluginManager().registerEvents(new QuickJoinClickListener(), this);
     }
      public void loadConfig() {
      getConfig().options().header("Das ist die Config vom RoccetLobbySystem");
